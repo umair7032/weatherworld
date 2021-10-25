@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">weather world</string>
+    <string name="app_name">The Weather World</string>
+    <string name="weather_by_id">weather by id</string>
+    <string name="weather_by_name">weather by name</string>
+    <string name="enter_id_name">Enter ID/NAME</string>
+    <string name="city_id">city id</string>
 </resources>

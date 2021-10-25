@@ -5,6 +5,7 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     android:background="#FFFFFF"
     tools:context=".MainActivity">
 
@@ -12,40 +13,45 @@
         android:id="@+id/btn_cityid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="city id"
+        android:text="@string/city_id"
         android:textSize="10sp"
         app:layout_constraintEnd_toStartOf="@id/btn_weatherbyid"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SmallSp" />
 
     <Button
         android:id="@+id/btn_weatherbyid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="weather by id"
+        android:text="@string/weather_by_id"
         android:textSize="10sp"
         app:layout_constraintEnd_toStartOf="@id/btn_weatherbyname"
         app:layout_constraintStart_toEndOf="@+id/btn_cityid"
-        app:layout_constraintTop_toTopOf="@id/btn_cityid" />
+        app:layout_constraintTop_toTopOf="@id/btn_cityid"
+        tools:ignore="SmallSp" />
 
     <Button
         android:id="@+id/btn_weatherbyname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="weather by name"
+        android:text="@string/weather_by_name"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_weatherbyid"
-        app:layout_constraintTop_toTopOf="@id/btn_weatherbyid" />
+        app:layout_constraintTop_toTopOf="@id/btn_weatherbyid"
+        tools:ignore="SmallSp" />
 
     <EditText
         android:id="@+id/et_datainput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/text_bg"
         android:layout_marginTop="28dp"
         android:ems="10"
-        android:hint="Enter ID/NAME"
+        android:hint="@string/enter_id_name"
         android:inputType="textPersonName"
+        android:padding="16dp"
         android:textColor="#1B1919"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -58,7 +64,7 @@
         android:layout_height="559dp"
         android:layout_marginTop="68dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/et_datainput" />
 </androidx.constraintlayout.widget.ConstraintLayout>
