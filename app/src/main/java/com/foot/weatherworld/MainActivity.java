@@ -2,6 +2,9 @@ package com.foot.weatherworld;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -29,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     Button btn_cityid, btn_weatherbyid, btn_weathrbyname;
     EditText et_datainput;
     ListView lv_weatherReport;
-
+    boolean connected = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,19 @@ public class MainActivity extends AppCompatActivity {
         btn_cityid = findViewById(R.id.btn_cityid);
         btn_weatherbyid = findViewById(R.id.btn_weatherbyid);
         btn_weathrbyname = findViewById(R.id.btn_weatherbyname);
+
+
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            //we are connected to a network
+            connected = true;
+        }
+        else {
+            connected = false;
+            Toast.makeText(MainActivity.this, "Please turn on the internet connection.", Toast.LENGTH_LONG).show();
+        }
+
 
 
         et_datainput = findViewById(R.id.et_datainput);
@@ -54,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onError(String message) {
                         Toast.makeText(MainActivity.this, "Error404", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Please check the internet connection.", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -74,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onError(String message) {
                         Toast.makeText(MainActivity.this, "Something is wrong",Toast.LENGTH_SHORT).show();
-
+                        Toast.makeText(MainActivity.this, "Please check the internet connection.", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -91,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onError(String message) {
                         Toast.makeText(MainActivity.this, "Error404", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Please check the internet connection.", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
